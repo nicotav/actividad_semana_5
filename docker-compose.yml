@@ -1,26 +1,24 @@
-version: '3.8'
+version: "3.9"
 services:
   jenkins:
-    build: .
+    build:
+      context: C:\Users\Raydo\OneDrive\.Nicolas_cloud\UTESA\2023\2023-1\Algoritmo Paralelos\2 parcial\semana5
+      dockerfile: Dockerfile
     ports:
-      - 8080:8080
-      - 50000:50000
+      - "8080:8080"
+      - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
     networks:
-      - jenkins
-
+      - semana5_jenkins
   nginx:
     image: nginx:latest
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     networks:
-      - jenkins
-
+      - semana5_jenkins
 networks:
-  jenkins:
-
-
+  semana5_jenkins:
 volumes:
   jenkins_home:
